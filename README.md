@@ -23,27 +23,40 @@ Sets up a Python virtual environment at `~/Virtual_Env/ai` and installs a practi
 
 ### 1) Clone this repository
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/drewmayberry11/ai-ml-toolkit-installer.git
+cd ai-ml-toolkit-installer
 ```
 
-### 2) Make the script executable and run
+### 2) Install venv tooling (once per machine)
+```bash
+sudo apt update
+sudo apt install -y python3 python3-venv python3-pip
+```
+
+### 3) Create and activate a virtual environment
+**Option A (project-local venv, recommended):**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+**Option B (shared location example):**
+```bash
+python3 -m venv ~/venvs/ai
+source ~/venvs/ai/bin/activate
+```
+
+### 4) Upgrade packaging tools inside the venv
+```bash
+python -m pip install --upgrade pip setuptools wheel
+```
+
+### 5) Make the script executable and run
 ```bash
 chmod +x setup_ai_env.sh
 ./setup_ai_env.sh
 ```
 
-### 3) Use the environment
-```bash
-# activate
-source ~/Virtual_Env/ai/bin/activate
-
-# launch jupyter
-jupyter lab
-# choose kernel: "Python (ai)"
-```
-
----
 
 ## Requirements
 
@@ -70,21 +83,5 @@ jupyter lab
 
 ---
 
-## Uninstall / Cleanup
 
-```bash
-# remove the virtual environment
-rm -rf ~/Virtual_Env/ai
 
-# remove the Jupyter kernel
-jupyter kernelspec uninstall ai
-
-# optional: clear caches
-rm -rf ~/.cache/pip ~/.cache/huggingface
-```
-
----
-
-## License
-
-MIT
