@@ -1,4 +1,4 @@
-# AI-ML Quick Packages Installer
+# AI-ML Quick Multi-Package Installer
 
 Sets up a Python virtual environment at `~/Virtual_Env/ai` and installs a practical, general-purpose ML/DS toolkit with error handling and a final install report.
 
